@@ -34,7 +34,7 @@ function pmpro_snippet_mgr_settings_page() {
                     <th scope="row">Disable PMPro redirect to levels page</th>
                     <td>
                         <input type="checkbox" name="pmpro_disable_redirect" value="1" <?php checked(1, get_option('pmpro_disable_redirect'), true); ?> />
-                        <p class="description">Redirect to Levels page for Registration is the default</p>
+                        <p class="description">Redirect to Levels page for Registration is enabled by default</p>
                     </td>
                 </tr>
                 <tr valign="top">
@@ -64,12 +64,13 @@ function pmpro_snippet_mgr_settings_page() {
                                         <label>Redirect <?php echo $index + 1; ?></label>
                                         <label>Level IDs (comma-separated)</label>
                                         <input type="text" name="pmpro_redirect_rules[<?php echo $index; ?>][level_ids]" value="<?php echo esc_attr($rule['level_ids']); ?>" />
+                                        <p class="description">Leave blank to restrict access to visitors with no membership</p>
                                         <label>Restricted URLs (comma-separated)</label>
                                         <textarea name="pmpro_redirect_rules[<?php echo $index; ?>][restricted_urls]"><?php echo esc_textarea($rule['restricted_urls']); ?></textarea>
-                                        <p class="description">Use relative paths such as `/your-page`</p>
+                                        <p class="description">Use relative paths such as /your-page</p>
                                         <label>Redirect URL</label>
                                         <input type="text" name="pmpro_redirect_rules[<?php echo $index; ?>][redirect_url]" value="<?php echo esc_attr($rule['redirect_url']); ?>" />
-                                        <p class="description">Use relative paths such as `/your-page`</p>
+                                        <p class="description">Use relative paths such as /your-page</p>
                                         <button type="button" class="remove-rule-button">Remove</button>
                                     </div>
                                     <?php
@@ -99,6 +100,7 @@ function pmpro_snippet_mgr_settings_page() {
         width: 100%;
         margin-bottom: 10px;
     }
+    .redirect-rule .description { margin-bottom: 17px; }
     .remove-rule-button {
         display: block;
         margin-top: 10px;
