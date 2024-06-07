@@ -42,7 +42,7 @@ function my_pmpro_custom_redirects() {
         if (is_array($rules)) {
             foreach ($rules as $rule) {
                 $level_ids = array_map('trim', explode(',', $rule['level_ids']));
-                $restricted_urls = array_map('trim', explode(',', $rule['restricted_urls']));
+                $restricted_urls = array_map('trim', explode("\n", $rule['restricted_urls']));
                 $redirect_url = trim($rule['redirect_url']);
                 foreach ($restricted_urls as $restricted_url) {
                     if (strpos($_SERVER['REQUEST_URI'], $restricted_url) !== false) {

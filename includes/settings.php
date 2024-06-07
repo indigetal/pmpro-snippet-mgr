@@ -48,7 +48,7 @@ function pmpro_snippet_mgr_settings_page() {
                     <th scope="row">Set Posts to Draft on Membership Cancel</th>
                     <td>
                         <input type="checkbox" name="pmpro_set_posts_to_draft" value="1" <?php checked(1, get_option('pmpro_set_posts_to_draft'), true); ?> />
-                        <p class="description">Set Author’s Posts to Draft When Membership is Cancelled.</p>
+                        <p class="description">Set Member Author’s Posts to Draft When Membership is Cancelled.</p>
                     </td>
                 </tr>
                 <tr valign="top">
@@ -64,8 +64,7 @@ function pmpro_snippet_mgr_settings_page() {
                                         <label>Redirect <?php echo $index + 1; ?></label>
                                         <label>Level IDs (comma-separated)</label>
                                         <input type="text" name="pmpro_redirect_rules[<?php echo $index; ?>][level_ids]" value="<?php echo esc_attr($rule['level_ids']); ?>" />
-                                        <p class="description">Leave blank to restrict access to visitors with no membership</p>
-                                        <label>Restricted URLs (comma-separated)</label>
+                                        <label>Restricted URLs (one per line)</label>
                                         <textarea name="pmpro_redirect_rules[<?php echo $index; ?>][restricted_urls]"><?php echo esc_textarea($rule['restricted_urls']); ?></textarea>
                                         <p class="description">Use relative paths such as /your-page</p>
                                         <label>Redirect URL</label>
@@ -122,7 +121,7 @@ function pmpro_snippet_mgr_settings_page() {
                 <label>Redirect ${index + 1}</label>
                 <label>Level IDs (comma-separated)</label>
                 <input type="text" name="pmpro_redirect_rules[${index}][level_ids]" />
-                <label>Restricted URLs (comma-separated)</label>
+                <label>Restricted URLs (one per line)</label>
                 <textarea name="pmpro_redirect_rules[${index}][restricted_urls]"></textarea>
                 <p class="description">Use relative paths such as \`/your-page\`</p>
                 <label>Redirect URL</label>
