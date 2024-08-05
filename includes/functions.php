@@ -56,6 +56,11 @@ function my_pmpro_custom_redirects() {
                     $redirect_url = home_url($redirect_url);
 
                     if (strpos($_SERVER['REQUEST_URI'], parse_url($restricted_url, PHP_URL_PATH)) !== false) {
+                        // Allow administrators to bypass the redirect rules
+                        if (current_user_can('administrator')) {
+                            continue;
+                        }
+
                         // If level_ids is empty, it means we want to capture users with no membership level
                         if (empty($level_ids) && !pmpro_hasMembershipLevel()) {
                             wp_safe_redirect($redirect_url);
@@ -63,7 +68,7 @@ function my_pmpro_custom_redirects() {
                         }
 
                         // Redirect users who do not have any of the specified levels
-                        if (!current_user_can('administrator') && (!pmpro_hasMembershipLevel($level_ids))) {
+                        if (!pmpro_hasMembershipLevel($level_ids)) {
                             wp_safe_redirect($redirect_url);
                             exit;
                         }

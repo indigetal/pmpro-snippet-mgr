@@ -2,7 +2,7 @@
 
 ## Description
 
-This addon compiles a number of useful custom code snippets for Paid Memberships Pro into a user-friendly settings page.
+This addon compiles a number of useful custom code snippets for Paid Memberships Pro in a user-friendly interface making it easier for administrators to apply these customizations.
 
 ## Installation
 
@@ -13,7 +13,7 @@ This addon compiles a number of useful custom code snippets for Paid Memberships
 
 Navigate to **Memberships > Snippet Manager** to configure the following options:
 
-1. **Disable PMPro redirect to levels page**: Disable redirect to the levels page during registration.
-2. **Default Membership Level**: Assign a default membership level to newly registered users.
-3. **Set Posts to Draft on Membership Cancel**: Set a member author's posts to draft when membership is cancelled.
-4. **Custom Redirects**: Define custom redirect rules based on membership levels or groups using JSON format.
+1. **Disable PMPro redirect to levels page**: Checkbox to disable the default PMPro behavior that redirects to the levels page during user registration.
+2. **Default Membership Level**: Number input to specify the default membership level ID to newly registered users.
+3. **Set Posts to Draft on Membership Cancel**: Checkbox to enable/disable setting member author’s posts to draft when their membership is cancelled.
+4. **Custom Redirects**: Dynamic form allowing the addition of multiple redirect rules with fields for the required level IDs, the restricted URLs, and the redirect URL.
